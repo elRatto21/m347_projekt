@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 
 services:
   backend:
@@ -33,3 +33,11 @@ services:
       KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
     ports:
       - "8080:8080"
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "5050:5050"
