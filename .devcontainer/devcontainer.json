@@ -1,0 +1,7 @@
+{
+	"name": "Motorify Dev-Container",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "backend",
+	"workspaceFolder": "/workspace"
+}
+  

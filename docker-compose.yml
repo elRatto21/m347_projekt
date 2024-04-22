@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - JDBC_DATABASE_URL=${JDBC_DATABASE_URL}
+      - JDBC_DATABASE_USERNAME=${JDBC_DATABASE_USERNAME}
+      - JDBC_DATABASE_PASSWORD=${JDBC_DATABASE_PASSWORD}
+      - JWT_ISSUER_URI=${JWT_ISSUER_URI}
+    depends_on:
+      - postgres
+      - keycloak
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    command: ["start-dev"]
+    environment:
+      KEYCLOAK_USER: ${KEYCLOAK_PASSWORD}
+      KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+    ports:
+      - "8080:8080"
