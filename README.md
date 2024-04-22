@@ -22,3 +22,4 @@ Anleitung zum Starten in einem Dev-Container
 - Die Spring-Boot Anwendung ist unter http://localhost:8081 erreichbar
 - Keycloak ist unter http://localhost:8080 erreichbar
 - PostgreSQL ist unter localhost:5432 erreichbar
+- pgAdmin4 ist unter http://localhost:5050 erreichbar
